@@ -1,0 +1,102 @@
+/* home.css is used to provide graphical content for Home.hsx */
+.home-section{
+    background-color: #11141f;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.master-container{
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.home-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    font-size: 24px;
+    height: 100px;
+}
+
+.nav-logo{
+    height: 100%;
+    width: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-logo, .nav-menu{
+    cursor: pointer;
+    user-select: none;
+}
+
+.home-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: 800px;
+}
+
+.home-greeting{
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+}
+
+.home-name-title{
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+
+.home-tagline{
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 40px 0;
+}
+
+.typing-cursor{
+    font-weight: 300;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink{
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0;}
+}
+
+.home-action-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.resume-button, .more-button{
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    transition: transform 0.2s;
+}
+
+.resume-button:hover, .more-button:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.more-button{
+    background: linear-gradient(90deg,#2b95ce, #42d2e8);
+    color: #12151e;
+    border: none;
+}
