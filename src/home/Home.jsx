@@ -34,7 +34,13 @@ return(
     <section className='home-section'>
         <nav className='home-nav'>
             <img className='nav-logo' src='../public/profile-picture.png'/>
-            <div className='nav-menu'>☰</div>
+            <div className='nav-content'>
+                <div className='nav-element'>Temp</div>
+                <div className='nav-element'>Temp1</div>
+                <div className='nav-element'>Temp2</div>
+                <div className='nav-element'>Temp3</div>
+                {/* <div className='nav-menu'>☰</div> */}
+            </div>
         </nav>
         <div className='master-container'>
             <main className='home-content'>
@@ -74,9 +80,14 @@ return(
                             text='' 
                             label='Show_next'
                         />
-                </div>
+                    </div>
                 </div>
             </main>
+            <div className='home-show-pannel'>
+                <div>
+
+                </div>
+            </div>
         </div>
     </section>
     );
