@@ -1,6 +1,7 @@
 /* home.css is used to provide graphical content for Home.hsx */
 .home-section{
-    background-color: #11141f;
+    background: linear-gradient(120deg, #000000, #11141f , #29304d);
+    /* background: #11141f; */
     color: #ffffff;
     min-height: 100vh;
     display: flex;
@@ -11,7 +12,7 @@
 
 .master-container{
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .home-nav{
@@ -21,6 +22,9 @@
     padding: 30px 0;
     font-size: 24px;
     height: 100px;
+
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
 }
 
 .nav-logo{
@@ -47,18 +51,38 @@
     font-size: 32px;
     font-weight: 500;
     margin: 0 0 10px 0;
+
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out 0.2s forwards;
 }
 
 .home-name-title{
     font-size: 48px;
     font-weight: 700;
     margin: 0 0 20px 0;
+
+    opacity: 0; 
+    animation: slideDownFade 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes slideDownFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Starts 30px higher */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at its normal position */
+    }
 }
 
 .home-tagline{
     font-size: 36px;
     font-weight: 500;
     margin: 0 0 40px 0;
+
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
 }
 
 .typing-cursor{
@@ -71,12 +95,22 @@
     50% {opacity: 0;}
 }
 
+.home-second-stage{
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out 0.4s forwards;
+}
+
+.home-description{
+    margin-bottom: 30px;
+    max-width: 80%;
+}
+
 .home-action-buttons{
     display: flex;
     gap: 20px;
 }
 
-.resume-button, .more-button{
+.more-button{
     padding: 12px 30px;
     font-size: 18px;
     font-weight: 600;
@@ -90,9 +124,9 @@
     transition: transform 0.2s;
 }
 
-.resume-button:hover, .more-button:hover{
+.more-button:hover{
     opacity: 0.8;
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(-2deg);
 }
 
 .more-button{
