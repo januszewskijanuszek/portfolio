@@ -1,0 +1,28 @@
+.main-frame{
+    display: flex;
+    border: 8px solid black;
+    min-height: 800px;
+
+    /* flex-direction: row-reverse; */
+    gap:20px
+
+    /* horizontal axis */
+    /* justify-content: center; */
+    /* justify-content: flex-end; */
+    /* justify-content: space-evenly; */
+
+    /* to samo tylko pionowo */
+    /* align-items: center; */
+
+}
+
+.box{
+    background-color: blue;
+    width: 40px;
+    color: white;
+    height: 40px;
+    font-size: 20pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

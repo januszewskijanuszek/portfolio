@@ -1,0 +1,240 @@
+/* home.css is used to provide graphical content for Home.hsx */
+
+    /* background: linear-gradient(120deg, #000000, #11141f , #29304d); */
+    /* background: #11141f; */
+    /* color: #ffffff; */
+    /* min-height: 100vh; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* padding: 0 40px; */
+    /* font-family: system-ui, -apple-system, sans-serif; */
+
+.home-section {
+    background-color: #11141f;
+    
+    background-image: 
+        radial-gradient(circle at center, rgba(43, 149, 206, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at center, rgba(41, 48, 77, 0.4) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        
+    background-size: 200% 200%, 200% 200%, 40px 40px, 40px 40px;
+    
+    /* Apply the animation: 25 seconds, smooth speed, infinite loop, moving back and forth */
+    animation: cloudDrift 15s ease-in-out infinite alternate;
+    
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* This controls the movement */
+@keyframes cloudDrift {
+    0% {
+        /* Start positions (X Y) for all 4 layers */
+        /* Cyan on the right, Blue on the left, Grid locked at 0 0 */
+        background-position: 100% 40%, 0% 60%, 0 0, 0 0;
+    }
+    100% {
+        /* End positions */
+        /* Cyan moves to the left, Blue moves to the right, Grid stays locked */
+        background-position: 0% 60%, 100% 40%, 0 0, 0 0;
+    }
+}
+.master-container{
+    margin-left: 10%;
+    margin-top: 5%;
+
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    gap: 50px;
+    width: 80%;
+}
+
+.home-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    font-size: 24px;
+    height: 100px;
+
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
+}
+
+.nav-content{
+    min-width: 50%;
+    min-height: 100%;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-element{
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 8px 4px;
+    max-width: 100px;
+    border-radius: 6px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-element:hover {
+    color: #2b95ce; 
+}
+
+.nav-element::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: linear-gradient(90deg, #2b95ce, #42d2e8);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.nav-element:hover::after {
+    width: 100%;
+}
+
+.nav-logo{
+    height: 100%;
+    width: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-logo, .nav-element{
+    cursor: pointer;
+    user-select: none;
+}
+
+.home-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: 800px;
+}
+
+.home-greeting{
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out 0.2s forwards;
+}
+
+.home-name-title{
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+
+    opacity: 0; 
+    animation: slideDownFade 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes slideDownFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Starts 30px higher */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at its normal position */
+    }
+}
+
+.home-tagline{
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 40px 0;
+
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
+}
+
+.typing-cursor{
+    font-weight: 300;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink{
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0;}
+}
+
+.home-second-stage{
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out 0.4s forwards;
+}
+
+.home-description{
+    margin-bottom: 30px;
+    max-width: 80%;
+}
+
+.home-action-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.more-button{
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    transition: transform 0.2s;
+}
+
+.more-button:hover{
+    opacity: 0.8;
+    transform: scale(1.1) rotate(-2deg);
+}
+
+.more-button{
+    background: linear-gradient(90deg,#2b95ce, #42d2e8);
+    color: #12151e;
+    border: none;
+}
+
+.home-show-pannel {
+    background: rgba(255, 255, 255, 0.05); 
+    
+    /* 2. The magic frosted/matte glass effect */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* For Safari support */
+    
+    /* 3. Subtle border to catch the light on the glass edge */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* 4. Soft shadow to separate it from the page */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+    /* Your existing structural properties */
+    flex-grow: 1; 
+    min-height: 450px;
+    border-radius: 12px;
+    padding: 20px;
+
+    opacity: 0; 
+    animation: slideDownFade 0.8s ease-out 0.4s forwards;
+}
