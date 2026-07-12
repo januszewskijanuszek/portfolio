@@ -9,7 +9,14 @@ function ImageButton({Icon=false, href='#', label="default", text="", download =
                 <TextDisplay text={text} />
             </a>
         );
-    } else{
+    } else if(text === ""){
+        return(
+            <a className='image-button' href={href} download={download || undefined}>
+                <ImageDisplay Icon={Icon} />
+            </a>
+        )
+    }
+    else{
         return(
             <a className='image-button' href={href} download={download || undefined}>
                 <ImageDisplay Icon={Icon} />
