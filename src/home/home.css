@@ -1,7 +1,28 @@
 /* home.css is used to provide graphical content for Home.hsx */
-.home-section{
-    background: linear-gradient(120deg, #000000, #11141f , #29304d);
+
+    /* background: linear-gradient(120deg, #000000, #11141f , #29304d); */
     /* background: #11141f; */
+    /* color: #ffffff; */
+    /* min-height: 100vh; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* padding: 0 40px; */
+    /* font-family: system-ui, -apple-system, sans-serif; */
+
+.home-section {
+    background-color: #11141f;
+    
+    background-image: 
+        radial-gradient(circle at center, rgba(43, 149, 206, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at center, rgba(41, 48, 77, 0.4) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        
+    background-size: 200% 200%, 200% 200%, 40px 40px, 40px 40px;
+    
+    /* Apply the animation: 25 seconds, smooth speed, infinite loop, moving back and forth */
+    animation: cloudDrift 15s ease-in-out infinite alternate;
+    
     color: #ffffff;
     min-height: 100vh;
     display: flex;
@@ -10,6 +31,19 @@
     font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* This controls the movement */
+@keyframes cloudDrift {
+    0% {
+        /* Start positions (X Y) for all 4 layers */
+        /* Cyan on the right, Blue on the left, Grid locked at 0 0 */
+        background-position: 100% 40%, 0% 60%, 0 0, 0 0;
+    }
+    100% {
+        /* End positions */
+        /* Cyan moves to the left, Blue moves to the right, Grid stays locked */
+        background-position: 0% 60%, 100% 40%, 0 0, 0 0;
+    }
+}
 .master-container{
     margin-left: 10%;
     margin-top: 5%;
@@ -182,9 +216,20 @@
     border: none;
 }
 
-.home-show-pannel{
-    background-color: black;
+.home-show-pannel {
+    background: rgba(255, 255, 255, 0.05); 
+    
+    /* 2. The magic frosted/matte glass effect */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* For Safari support */
+    
+    /* 3. Subtle border to catch the light on the glass edge */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* 4. Soft shadow to separate it from the page */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 
+    /* Your existing structural properties */
     flex-grow: 1; 
     min-height: 450px;
     border-radius: 12px;
