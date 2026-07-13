@@ -74,7 +74,6 @@ function Home(){
             setCurrentImageIndex((prevIndex) => 
                 prevIndex === portfolioItems.length - 1 ? 0 : prevIndex + 1
             );
-            // Ensure subsequent automatic changes revert to 4 seconds
             setTimer(10000); 
         }, timer);
 
@@ -113,7 +112,7 @@ return(
         </nav>
         <div className='master-container'>
             <main className='home-content'>
-                <h2 className='home-greeting'>Hello 👋</h2>
+                <h2 className='home-greeting'>Hello👋</h2>
                 <h1 className='home-name-title'>I'm Patryk Januszewski</h1>
                 <p className='home-tagline'>
                     <span style={{ color: '#2b95ce' }}>{coloredPart}</span>
@@ -160,7 +159,7 @@ return(
                         Icon={FaArrowLeft} 
                         text='' 
                         label='Show_next'
-                        className='image-button-circle'
+                        className='image-button'
                         onClick={handlePrevImage}
                     />
                     <div className='carousel-dots'>
@@ -179,7 +178,7 @@ return(
                         Icon={FaArrowRight} 
                         text='' 
                         label='Show_next'
-                        className='image-button-circle'
+                        className='image-button'
                         onClick={handleNextImage}
                     />
                 </div>
