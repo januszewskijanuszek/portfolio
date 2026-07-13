@@ -4,7 +4,7 @@ import './home.css'
 import SocialLink from './SocialLink';
 import ImageButton from '../utils/ImageButton';
 
-import {FaLinkedinIn, FaGithub, FaFacebook} from 'react-icons/fa';
+import {FaLinkedinIn, FaGithub, FaFacebook, FaDiscord} from 'react-icons/fa';
 import { IoMailSharp } from "react-icons/io5";
 import { FaFileDownload } from "react-icons/fa";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -12,6 +12,26 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 function Home(){
     const fullText = "Silicon Firmware Development Engineer";
     const [displayedText, setDisplayedText] = useState("");
+
+    const images = [
+        "../public/cool.jpg",
+        "../public/images.jpg",
+        "../public/Trollface.png"
+    ];
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const handleNextImage = () => {
+        setCurrentImageIndex((prevIndex) => 
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+    }
+
+    const handlePrevImage = () => {
+        setCurrentImageIndex((prevIndex) => 
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+    };
 
     useEffect(() => {
         let currentIndex = 0;
@@ -39,7 +59,6 @@ return(
                 <div className='nav-element'>Temp1</div>
                 <div className='nav-element'>Temp2</div>
                 <div className='nav-element'>Temp3</div>
-                {/* <div className='nav-menu'>☰</div> */}
             </div>
         </nav>
         <div className='master-container'>
@@ -59,6 +78,7 @@ return(
                         <SocialLink icon={FaLinkedinIn} href='https://www.linkedin.com/in/patryk-januszew/' label={"LinkedIn"} />
                         <SocialLink icon={FaGithub} href='https://github.com/januszewskijanuszek' label={"Github"} />
                         <SocialLink icon={FaFacebook} href='https://www.facebook.com/patryk.januszewski.16' label={"Facebook"} />
+                        <SocialLink icon={FaDiscord} href='' label={"Discord"} />
                         <SocialLink icon={IoMailSharp} href='mailto:januszewskijanuszek@gmail.com' label={"Email"} />
                     </div>
                     <div className='home-action-buttons'>
@@ -70,22 +90,36 @@ return(
                             download="resume.pdf" 
                         />
                         <div className='more-button'>More about me</div>
-                        <ImageButton 
-                            Icon={FaArrowLeft} 
-                            text='' 
-                            label='Show_next'
-                        />
-                        <ImageButton 
-                            Icon={FaArrowRight} 
-                            text='' 
-                            label='Show_next'
-                        />
                     </div>
                 </div>
             </main>
             <div className='home-show-pannel'>
-                <div>
-
+                <div className='home-graphic-window'>
+                    <img 
+                        src={images[currentImageIndex]}
+                        alt={`Present-${currentImageIndex + 1}`}
+                        className='portfolio-image'
+                    />
+                </div>
+                <div className='home-show-description'>
+                    Silicon Firmware Development Engineer with 3 year experience in firmware development specialized in C++ programming langage.
+                </div>
+                <div className='home-button-swich'>
+                    <ImageButton 
+                        Icon={FaArrowLeft} 
+                        text='' 
+                        label='Show_next'
+                        className='image-button-circle'
+                        onClick={handlePrevImage}
+                    />
+                    {images[currentImageIndex]}
+                    <ImageButton 
+                        Icon={FaArrowRight} 
+                        text='' 
+                        label='Show_next'
+                        className='image-button-circle'
+                        onClick={handleNextImage}
+                    />
                 </div>
             </div>
         </div>
