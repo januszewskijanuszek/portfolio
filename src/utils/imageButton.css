@@ -1,38 +1,43 @@
-.image-button, .image-button-circle{
+.image-button, .image-button-circle {
     display: flex;
-    /* justify-content: space-between; */
-    color: white;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 13px;
     font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: opacity 0.2s;
-    transition: transform 0.2s;
-
-    background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.25s ease;
 }
 
-.image-button{
-    border-radius: 6px;
-    padding: 12px 25px;
+.image-button {
+    border-radius: 4px;
+    padding: 11px 24px;
 }
 
-.image-button-circle{
+.image-button-circle {
     border-radius: 50%;
-    padding: 20px;
-    transition: opacity 0.2s;
+    padding: 13px;
+    border: 1px solid rgba(43, 149, 206, 0.3);
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.image-button-circle:hover{
-    opacity: 0.8;
-    color: #2b95ce;
-    font-weight: 1800;
-    border: 2px solid #2b95ce;
+.image-button-circle:hover {
+    color: #42d2e8;
+    border-color: rgba(66, 210, 232, 0.7);
+    background: rgba(66, 210, 232, 0.08);
+    box-shadow: 0 0 14px rgba(66, 210, 232, 0.2);
 }
 
-.image-button:hover{
-    opacity: 0.8;
-    transform: scale(1.1) rotate(-2deg);
+.image-button:hover {
+    color: #ffffff;
+    border-color: rgba(43, 149, 206, 0.6);
+    background: rgba(43, 149, 206, 0.08);
+    box-shadow: 0 0 14px rgba(43, 149, 206, 0.2);
+    transform: translateY(-2px);
 }
