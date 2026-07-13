@@ -20,18 +20,36 @@ function Home(){
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [timer, setTimer] = useState(4000);
 
     const handleNextImage = () => {
         setCurrentImageIndex((prevIndex) => 
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
         );
+        setTimer(8000);
     }
 
     const handlePrevImage = () => {
         setCurrentImageIndex((prevIndex) => 
             prevIndex === 0 ? images.length - 1 : prevIndex - 1
         );
+        setTimer(8000);
     };
+
+    useEffect(() => {
+        const autoPlayTimeout = setTimeout(() => {
+            // Move to next image
+            setCurrentImageIndex((prevIndex) => 
+                prevIndex === images.length - 1 ? 0 : prevIndex + 1
+            );
+            // Ensure subsequent automatic changes revert to 4 seconds
+            setTimer(4000); 
+        }, timer);
+
+        // This clears the timer EVERY time the image index or timer state changes, 
+        // which perfectly resets the countdown on manual clicks.
+        return () => clearTimeout(autoPlayTimeout);
+    }, [currentImageIndex, timer, images.length]);
 
     useEffect(() => {
         let currentIndex = 0;
@@ -96,6 +114,7 @@ return(
             <div className='home-show-pannel'>
                 <div className='home-graphic-window'>
                     <img 
+                        key={currentImageIndex}
                         src={images[currentImageIndex]}
                         alt={`Present-${currentImageIndex + 1}`}
                         className='portfolio-image'
