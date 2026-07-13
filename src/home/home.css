@@ -231,6 +231,7 @@
     content: '';
     position: absolute;
     inset: 0;
+    z-index: -1;
     background: linear-gradient(90deg, #42d2e8, #2b95ce);
     opacity: 0;
     transition: opacity 0.3s ease;

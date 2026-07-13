@@ -33,7 +33,9 @@ function Home(){
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [timer, setTimer] = useState(6000);
+    const [timer, setTimer] = useState(10000);
+    const [displayedDescription, setDisplayedDescription] = useState('');
+    const [descTypingDone, setDescTypingDone] = useState(false);
 
     const handleNextImage = () => {
         setCurrentImageIndex((prevIndex) => 
@@ -50,13 +52,30 @@ function Home(){
     };
 
     useEffect(() => {
+        const fullDescription = portfolioItems[currentImageIndex].description;
+        setDisplayedDescription('');
+        setDescTypingDone(false);
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i <= fullDescription.length) {
+                setDisplayedDescription(fullDescription.slice(0, i));
+                i++;
+            } else {
+                setDescTypingDone(true);
+                clearInterval(interval);
+            }
+        }, 30);
+        return () => clearInterval(interval);
+    }, [currentImageIndex]);
+
+    useEffect(() => {
         const autoPlayTimeout = setTimeout(() => {
             // Move to next image
             setCurrentImageIndex((prevIndex) => 
                 prevIndex === portfolioItems.length - 1 ? 0 : prevIndex + 1
             );
             // Ensure subsequent automatic changes revert to 4 seconds
-            setTimer(4000); 
+            setTimer(10000); 
         }, timer);
 
         // This clears the timer EVERY time the image index or timer state changes, 
@@ -134,7 +153,7 @@ return(
                     />
                 </div>
                 <div className='home-show-description'>
-                    {portfolioItems[currentImageIndex].description}
+                    {displayedDescription}{!descTypingDone && <span className='typing-cursor' style={{ color: '#2b95ce' }}>|</span>}
                 </div>
                 <div className='home-button-swich'>
                     <ImageButton 
