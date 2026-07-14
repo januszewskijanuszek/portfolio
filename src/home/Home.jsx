@@ -186,6 +186,7 @@ return(
                             <div 
                                 key={index} 
                                 className={`dot ${index === currentImageIndex ? 'active' : ''}`}
+                                style={index === currentImageIndex ? { '--progress-duration': `${timer}ms` } : undefined}
                                 onClick={() => {
                                     setCurrentImageIndex(index);
                                     setTimer(18000);

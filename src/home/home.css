@@ -530,7 +530,7 @@
     inset: 0;
     background: linear-gradient(90deg, #2b95ce, #42d2e8);
     box-shadow: 0 0 8px rgba(66, 210, 232, 0.5);
-    animation: progressFill 10s linear forwards;
+    animation: progressFill var(--progress-duration, 10s) linear forwards;
     transform-origin: left;
 }
 
