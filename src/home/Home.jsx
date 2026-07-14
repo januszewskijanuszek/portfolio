@@ -112,13 +112,23 @@ return(
         </nav>
         <div className='master-container'>
             <main className='home-content'>
-                <h2 className='home-greeting'>Hello👋</h2>
-                <h1 className='home-name-title'>I'm Patryk Januszewski</h1>
+                <div className='home-handle'>
+                    <span className='handle-prompt'>&gt;</span> patryk_j
+                    <span className='handle-accent'>// firmware_engineer.h</span>
+                </div>
+                <h1 className='home-name-title'>Patryk Januszewski</h1>
                 <p className='home-tagline'>
                     <span style={{ color: '#2b95ce' }}>{coloredPart}</span>
                         {regularPart}
                     <span className='typing-cursor' style={{ color: '#2b95ce' }}>|</span>
                 </p>
+                <div className='home-meta-chips'>
+                    <span className='meta-chip meta-chip--status'>
+                        <span className='status-dot' /> Available for work
+                    </span>
+                    <span className='meta-chip'>Gdańsk, PL</span>
+                    <span className='meta-chip'>C · C++ · Python</span>
+                </div>
                 <div className='home-second-stage'>
                     <p className='home-description'>
                         Silicon Firmware Development Engineer with <span style={{ color: '#2b95ce' }}>3 year experience</span> in firmware development specialized in C++ programming langage.
@@ -143,6 +153,15 @@ return(
                 </div>
             </main>
             <div className='home-show-pannel'>
+                <div className='panel-header'>
+                    <div className='panel-lights'>
+                        <span className='panel-light panel-light--red' />
+                        <span className='panel-light panel-light--yellow' />
+                        <span className='panel-light panel-light--green' />
+                    </div>
+                    <div className='panel-path'>~/portfolio/<span className='panel-path-accent'>{String(currentImageIndex + 1).padStart(2, '0')}</span>_of_{String(portfolioItems.length).padStart(2, '0')}</div>
+                    <div className='panel-status'>LIVE</div>
+                </div>
                 <div className='home-graphic-window'>
                     <img 
                         key={currentImageIndex}
@@ -159,7 +178,7 @@ return(
                         Icon={FaArrowLeft} 
                         text='' 
                         label='Show_next'
-                        className='image-button'
+                        className='image-button-icon'
                         onClick={handlePrevImage}
                     />
                     <div className='carousel-dots'>
@@ -178,7 +197,7 @@ return(
                         Icon={FaArrowRight} 
                         text='' 
                         label='Show_next'
-                        className='image-button'
+                        className='image-button-icon'
                         onClick={handleNextImage}
                     />
                 </div>
