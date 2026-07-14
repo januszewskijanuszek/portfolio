@@ -1,43 +1,82 @@
-.image-button, .image-button-circle {
+.image-button, .image-button-circle, .image-button-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
     cursor: pointer;
     background: transparent;
     color: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     transition: all 0.25s ease;
 }
 
 .image-button {
     border-radius: 4px;
-    padding: 11px 24px;
+    padding: 12px 22px;
+    background: linear-gradient(90deg, #2b95ce, #42d2e8);
+    color: #0b0e15;
+    border: none;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
 }
 
+.image-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(90deg, #42d2e8, #2b95ce);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-button > * {
+    position: relative;
+    z-index: 1;
+}
+
+.image-button:hover {
+    box-shadow: 0 0 22px rgba(43, 149, 206, 0.55), 0 6px 20px rgba(0, 0, 0, 0.35);
+    transform: translateY(-1px);
+}
+
+.image-button:hover::before {
+    opacity: 1;
+}
+
+/* Icon-only ghost square — used for carousel arrows */
+.image-button-icon {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.image-button-icon:hover {
+    color: #42d2e8;
+    border-color: rgba(66, 210, 232, 0.5);
+    background: rgba(66, 210, 232, 0.06);
+}
+
+/* Circular variant kept for compatibility */
 .image-button-circle {
     border-radius: 50%;
-    padding: 13px;
-    border: 1px solid rgba(43, 149, 206, 0.3);
+    padding: 12px;
     color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(43, 149, 206, 0.3);
 }
 
 .image-button-circle:hover {
     color: #42d2e8;
     border-color: rgba(66, 210, 232, 0.7);
-    background: rgba(66, 210, 232, 0.08);
-    box-shadow: 0 0 14px rgba(66, 210, 232, 0.2);
-}
-
-.image-button:hover {
-    color: #ffffff;
-    border-color: rgba(43, 149, 206, 0.6);
-    background: rgba(43, 149, 206, 0.08);
-    box-shadow: 0 0 14px rgba(43, 149, 206, 0.2);
-    transform: translateY(-2px);
+    background: rgba(66, 210, 232, 0.06);
 }
