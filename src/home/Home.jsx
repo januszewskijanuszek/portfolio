@@ -16,15 +16,15 @@ function Home(){
     const portfolioItems = [
         { 
             src: '../public/intel.png', 
-            description: 'Custom C++ Firmware for IoT smart home devices.' 
+            description: '3 years of experience at Intel as firmware developer (October 2023 - Current)' 
         },
         { 
-            src: '../public/cool.jpg', 
-            description: 'Custom C++ Firmware for IoT smart home devices.' 
+            src: '../public/merito.png', 
+            description: 'Lecturer of object oriented programming at WSB Merito Gdańsk in C++. Teaching new generations of students OOP principles.' 
         },
         { 
-            src: '../public/images.jpg', 
-            description: 'Optimized memory management system for embedded processors.' 
+            src: '../public/rocket_studies.jpg', 
+            description: 'Majored masters in Space telecommunication in Gdańsk University of Technology' 
         },
         { 
             src: '../public/Trollface.png', 
